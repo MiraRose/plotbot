@@ -1,5 +1,9 @@
 from django.http import HttpResponse
 
+from charactergen.models import Character
+
 
 def index(request):
-    return HttpResponse("Hello, world. You're at character generator index.")
+
+    character = Character.objects.random()
+    return HttpResponse(character.type)
