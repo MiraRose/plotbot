@@ -1,0 +1,34 @@
+div.main {
+    margin: auto;
+    width: 50%;
+    background-color: gray;
+}
+
+div.attribution {
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    background-color: burlywood;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+}
+
+p {
+    margin: auto;
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: auto;
+}
+
+img {
+    display: block;
+    margin: auto;
+    padding: 20px;
+}

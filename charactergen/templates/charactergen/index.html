@@ -6,23 +6,28 @@
     <title>PlotBot</title>
 <!--    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"-->
 <!--          integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">-->
-<!--    <link rel="stylesheet" type="text/css" href="{% static 'conversational/style.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'charactergen/style/style.css' %}">
 </head>
 <body>
 <div class="main">
     {% if random_character %}
     <div>
-        {{ random_character }}
-        {{ random_character.type }}
+        <img src="{% static 'charactergen/characterimgs/' %}{{ random_character.type }}.svg">
+        <h1>{{ random_character.type }}</h1>
+        <p>{{ random_character.description }}</p>
     </div>
-    {% else %}
-    <p>No conversations are available. Start one?</p>
-    {% endif %}
+{% else %}
+<p>Something went terribly wrong.</p>
+{% endif %}
 
-    <form action="{% url 'get_random_character' %}" method="get" class="pure-form">
+<form action="{% url 'get_random_character' %}" method="get" class="pure-form">
         {% csrf_token %}
         <input type="submit" value="Random Character">
     </form>
+
+    <div class="attribution">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+
 </div>
 </body>
 </html>
