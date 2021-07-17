@@ -19,9 +19,18 @@ def create_test_character(character_type):
 class CharactergenTests(TestCase):
 
     def test_random_character_shows_character(self):
-        conversation = create_test_character("Meep")
+        create_test_character("Meep")
         url = reverse('get_random_character')
         response = self.client.post(url, follow=True)
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Meep")
+        self.assertContains(response, "Lorem ipsum dolor sit amet")
+
+    def test_index(self):
+
+        response = self.client.get(reverse('index'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "?")
+
